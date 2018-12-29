@@ -1,0 +1,32 @@
+server:
+  port: 8002
+  
+mybatis:
+  config-location: classpath:mybatis/mybatis-config.xml     # mybatis配置文件所在路径
+  type-aliases-package: com.xiong.entity                    # 所有Entity别名类所在包
+  mapper-locations: classpath:mybatis/mapper/**/*.xml       # mapper映射文件
+    
+spring:
+   application:
+    name: springcloud-provider
+   datasource:
+    type: com.alibaba.druid.pool.DruidDataSource            # 当前数据源操作类型
+    driver-class-name: org.gjt.mm.mysql.Driver              # mysql驱动包
+    url: jdbc:mysql://172.16.20.39:3306/springcloud2         # 数据库名称
+    username: root
+    password: 123456
+    dbcp2:
+      min-idle: 5                                           # 数据库连接池的最小维持连接数
+      initial-size: 5                                       # 初始化连接数
+      max-total: 5                                          # 最大连接数
+      max-wait-millis: 200
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka1.com:6001/eureka/,http://eureka2.com:6002/eureka/,http://eureka3.com:6003/eureka/              # 服务的注册地址
+
+info:
+  app.name: springcloudCombine
+  companyname: www.wisewater.com
+  build.artifactId: $project.artfactId$
+  build.version: $project.version$
