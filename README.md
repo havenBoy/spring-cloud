@@ -1,2 +1,44 @@
 # spring-cloud
-* how to make Micro-service architecture
+* 微服务的概念
+  - 把传统的一站式应用拆分开，使其去耦合，类似于进程，能够单独启动或者注销，拥有自己单独的数据库
+  - 微服务技术栈包含了：(针对每一项，springcloud对每一个技术栈都有自己的技术落地实现)
+    * 服务的注册与发现（zookeeper、eureka）；
+    * 服务之间的调用（rest、rpc）;
+    * 服务的熔断（hystrix）;
+    * 负载均衡（nginx 、ribbon）；
+    * 消息队列（kafka，activeMq）；
+    * 服务配置中心管理（springcloud-config）；
+    * 服务路由（zuul）；
+    * 服务部署（docker）；
+    * 事件消息总线（springcloudBus）；
+  - springcloud是分布式微服务下一站式的解决方案；
+* springcloud与springboot的区别
+  - springboot是快速开发单个应用服务，springcloud是对于全局的服务治理框架
+  - springboot是可以单独存在的，但springcloud的开发是依赖于springboot
+* dubbo与springcloud的对比
+  - 目前比较流行的技术是dubbo的分布式治理，但为什么还会出现springcloud？
+  - 除了服务的注册于发现以及服务的监控，其他维度技术的实现在dubbo中都没有体现；
+  - springcloud采用了rest风格的通讯方式，丢弃了之前rpc类似于二进制的通讯方式；
+  - dubbo的定义：只是一个rpc框架；
+  - 总结：使用springcloud你不必担心如果需要其他技术栈实现使用时的问题，类似于电脑的组装，springcloud是一体机，正宗的牌子，但dubbo类似于组装机，也许有那天你会因为开发不出一个合适的CPU而烦恼；
+* springcloud的初始搭建
+  - 首先创建一个父工程，其中包含了一个公共接口的子工程和一个服务提供者还有另外一个服务消费者；
+  - 使用springboot搭建出一个普通的ssm工程；
+  - 服务消费者使用restTemplate调用服务提供者提供的服务；
+  - 测试：服务消费者可以消费提供的服务；
+* Eureka介绍
+  - 是用来实现服务的注册与发现；
+  - 分为服务端与客户端，客户端连接到服务端，并维持心跳(30s)，通过管理服务中心即可管理各个微服务；
+  - 服务提供者把服务注册在euraka中，消费者从Eureka中拉取注册服务列表，从而消费服务；
+  - 如果某一时刻，某个服务不能使用，Eureka不会立即清理，依然保存对该服务的信息维护；
+  - 通常情况下，会对Eureka做集群处理，保证注册中心的稳定；
+* ribbon介绍
+  - 负载均衡，把用户的请求分摊在多个服务器上，从而达到服务的高可用；
+  - springcloud负载均衡算法可以自定义；
+  - 在获得restTemplate时，加上@loadBalance注解；
+  - 上述的Eureka与ribbon整合后不必关心服务的IP与端口；
+* feign介绍
+  - 之前的服务是采用ribbon+restTemplate来访问的
+  - feign是通过接口的方式进行调用；
+* Hystrix断路器
+  - ​
