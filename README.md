@@ -39,6 +39,6 @@
   - 上述的Eureka与ribbon整合后不必关心服务的IP与端口；
 * feign介绍
   - 之前的服务是采用ribbon+restTemplate来访问的
-  - feign是通过接口的方式进行调用；
+  - feign是通过接口+注解的方式进行调用；
 * Hystrix断路器
   - ​
