@@ -1,6 +1,6 @@
 package com.xiong.controller;
 
-import entity.Dept;
+import com.xiong.entity.Dept;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;

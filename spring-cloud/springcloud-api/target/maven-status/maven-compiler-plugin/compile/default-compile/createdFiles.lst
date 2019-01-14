@@ -1,1 +1,2 @@
-entity\Dept.class
+com\xiong\service\DeptService.class
+com\xiong\entity\Dept.class

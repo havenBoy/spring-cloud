@@ -1,7 +1,7 @@
 package com.xiong.controller;
 
 import com.xiong.service.DeptService;
-import entity.Dept;
+import com.xiong.entity.Dept;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;

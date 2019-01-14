@@ -2,7 +2,7 @@ package com.xiong.impl;
 
 import com.xiong.dao.DeptDao;
 import com.xiong.service.DeptService;
-import entity.Dept;
+import com.xiong.entity.Dept;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

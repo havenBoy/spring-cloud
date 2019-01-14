@@ -1,6 +1,6 @@
 package com.xiong.service;
 
-import entity.Dept;
+import com.xiong.entity.Dept;
 
 import java.util.List;
 

@@ -1,6 +1,6 @@
 package com.xiong.dao;
 
-import entity.Dept;
+import com.xiong.entity.Dept;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;

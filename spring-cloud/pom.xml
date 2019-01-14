@@ -98,6 +98,7 @@
         <module>springcloud-eureka2</module>
         <module>springcloud-eureka3</module>
         <module>springcloud-provider2</module>
+        <module>springcloud-consumer-feign</module>
     </modules>
 
 </project>
