@@ -38,13 +38,10 @@
   - 在获得restTemplate时，加上@loadBalance注解；
   - 上述的Eureka与ribbon整合后不必关心服务的IP与端口；
 * feign介绍
-<<<<<<< HEAD
   - 之前的服务是采用ribbon+restTemplate来访问的，现在是通过接口的方式进行调用；
   - 首先在API中声明@FeignClient，属性value值中指明具体的服务名称；
   - 之后再controller中调用是，直接注入此service，即可完成服务的调用，达到和ribbon同样的效果；
-=======
-  - 之前的服务是采用ribbon+restTemplate来访问的
-  - feign是通过接口+注解的方式进行调用；
->>>>>>> 2b861f0bc7c197999e7cc72b9894474b789035e1
+
+
 * Hystrix断路器
   - ​
