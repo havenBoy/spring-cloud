@@ -11,7 +11,6 @@
 
     <artifactId>springcloud-provider</artifactId>
 
-
     <dependencies>
         <!-- 引入自己定义的api通用包，可以使用Dept部门Entity -->
         <dependency>

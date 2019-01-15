@@ -99,6 +99,8 @@
         <module>springcloud-eureka3</module>
         <module>springcloud-provider2</module>
         <module>springcloud-consumer-feign</module>
+        <module>springcloud-provider-hystrix</module>
+        <module>springcloud-consumer-hystrix-dashboard</module>
     </modules>
 
 </project>

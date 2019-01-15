@@ -32,16 +32,24 @@
   - 服务提供者把服务注册在euraka中，消费者从Eureka中拉取注册服务列表，从而消费服务；
   - 如果某一时刻，某个服务不能使用，Eureka不会立即清理，依然保存对该服务的信息维护；
   - 通常情况下，会对Eureka做集群处理，保证注册中心的稳定；
-* ribbon介绍
+* Ribbon介绍
   - 负载均衡，把用户的请求分摊在多个服务器上，从而达到服务的高可用；
   - springcloud负载均衡算法可以自定义；
   - 在获得restTemplate时，加上@loadBalance注解；
   - 上述的Eureka与ribbon整合后不必关心服务的IP与端口；
-* feign介绍
+* Feign介绍
   - 之前的服务是采用ribbon+restTemplate来访问的，现在是通过接口的方式进行调用；
   - 首先在API中声明@FeignClient，属性value值中指明具体的服务名称；
   - 之后再controller中调用是，直接注入此service，即可完成服务的调用，达到和ribbon同样的效果；
 
 
-* Hystrix断路器
-  - ​
+* Hystrix介绍
+  - 用于处理分布式系统延迟和容错的开源库，保证在一个或者几个依赖出现问题的时候，不会导致服务整体出现级联故障，提高了分布式系统的弹性；
+  - 原理是当某一个服务单元出现故障时，向调用方返回一个预期的备选响应，而不是长时间的等待或者抛出异常，不会导致资源被长时间的占用，避免服务的雪崩，提高服务的弹性；
+  - 服务熔断：
+    - 应对雪崩效应的一种微服务链路保护机制，当某个微服务不可用或者等待时间过长时，迅速返回准备好的错误信息，当节点正常时，恢复调用链路；
+    - @HystrixCommand(fallbackMethod = "findByIdException")    表示在此方法存在异常时，可以去找fallbackMethod 中的方法去处理异常错误；
+  - 服务降级：
+    - 整体资源不够，先把某些服务关掉，等资源充足时，再恢复回来，针对客户端；
+    - 根据已经有的DeptClientService接口新建一个实现了FallbackFactory接口的类DeptClientServiceFallbackFactory，注意加上@Component注解；
+  - HystrixDashBoard : 提供实时的调用监控图形展示；
