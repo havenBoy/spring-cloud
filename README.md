@@ -51,5 +51,25 @@
     - @HystrixCommand(fallbackMethod = "findByIdException")    表示在此方法存在异常时，可以去找fallbackMethod 中的方法去处理异常错误；
   - 服务降级：
     - 整体资源不够，先把某些服务关掉，等资源充足时，再恢复回来，针对客户端；
-    - 根据已经有的DeptClientService接口新建一个实现了FallbackFactory接口的类DeptClientServiceFallbackFactory，注意加上@Component注解；
+    - 根据已经有的DeptService接口新建一个实现了FallbackFactory接口的类DeptServiceFallbackFactory，注意加上@Component注解；
   - HystrixDashBoard : 提供实时的调用监控图形展示；
+
+* Zuul路由网关
+
+  - 主要作用是对于请求的**路由**和**过滤**；
+
+  - 其中的路由功能可以把请求转移到具体的微服务实例上；
+
+  - Zuul与Eureka整合，把Zuul注册进入Eureka，Zuul从注册中心获取微服务的消息，从而实现调用微服务的功能；
+
+  - 步骤：（可以做到真实服务名称的影藏和公共前缀的配置）
+
+    1.开启Zuul的注解   @EnableZuulProxy
+
+    2.修改yml，端口，路由规则，Eureka注册中心地址注册；
+
+* Config分布式配置中心
+
+  - 为微服务提供集中化的外部配置管理，针对每一个微服务；
+  - 分为服务端与客户端，服务单负责从远程拉取配置信息，客户端负责通过配置中心管理应用资源；
+  - 动态切换环境，配置在变化时，服务不需要重启即可切换；

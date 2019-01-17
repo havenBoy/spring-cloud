@@ -1,0 +1,11 @@
+server:
+  port: 4001
+
+spring:
+  application:
+    name: springcloud-config
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/havenBoy/springcloud-config.git #GitHub上面的git仓库名字
