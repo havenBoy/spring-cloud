@@ -16,7 +16,7 @@ public class RestController {
 
     @RequestMapping("/config")
     public String getConfig() {
-        System.out.println("打印出的" + applicationName);
+        System.out.println("打印出的：" + applicationName);
         return applicationName;
     }
 }
