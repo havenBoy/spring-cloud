@@ -1,8 +1,0 @@
-server:
-  port: 7001
-
-eureka:
-  client:
-    register-with-eureka: false     #false表示不向注册中心注册自己。
-    service-url:
-      defaultZone: http://eureka1.com:6001/eureka/,http://eureka2.com:6002/eureka/,http://eureka3.com:6003/eureka/              # 服务的注册地址

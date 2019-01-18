@@ -1,5 +1,0 @@
-com\xiong\dao\DeptDao.class
-com\xiong\service\DeptService.class
-main\TestMain.class
-com\xiong\impl\DeptServiceImpl.class
-com\xiong\controller\DeptController.class
